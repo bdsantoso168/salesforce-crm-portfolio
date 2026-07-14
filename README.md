@@ -1,4 +1,4 @@
-## Salesforce CRM Transformation Case Study
+# Salesforce CRM Transformation Case Study
 
 **Sequencing matters more than software.**
 
