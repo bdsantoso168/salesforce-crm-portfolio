@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Benedict Santoso | Salesforce CRM Transformation Case Study</title>
+<meta name="description" content="A CRM transformation designed to survive three competing executive constraints and the wreckage of a failed pilot.">
+<meta property="og:title" content="Salesforce CRM Transformation | Benedict Santoso">
+<meta property="og:description" content="A CRM transformation designed to survive three competing executive constraints and the wreckage of a failed pilot.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  a { color: #17A2A0; text-decoration: none; }
+  a:hover { color: #0F7F7D; }
+  ::selection { background: #17A2A0; color: #fff; }
+</style>
+</helmet>
+
+<div style="font-family:'IBM Plex Sans',system-ui,sans-serif;color:#3C4A5E;background:#FFFFFF;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden;">
+
+  <!-- ===== NAV ===== -->
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px clamp(20px,5vw,64px);background:rgba(31,56,100,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.08);">
+    <a href="#top" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;letter-spacing:0.5px;color:#FFFFFF;display:flex;align-items:center;gap:10px;">
+      <span style="width:9px;height:9px;border-radius:2px;background:#17A2A0;display:inline-block;"></span>
+      Benedict Santoso
+    </a>
+
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;align-items:center;gap:clamp(14px,2.4vw,30px);font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:500;">
+        <a href="#challenge" style="color:rgba(255,255,255,0.72);">Challenge</a>
+        <a href="#approach" style="color:rgba(255,255,255,0.72);">Approach</a>
+        <a href="#roadmap" style="color:rgba(255,255,255,0.72);">Roadmap</a>
+        <a href="#deliverables" style="color:rgba(255,255,255,0.72);">Deliverables</a>
+        <a href="https://www.linkedin.com/in/benedictdaxellsantoso/" target="_blank" rel="noopener" style="color:#0B1F3A;background:#17A2A0;padding:9px 18px;border-radius:6px;font-weight:600;" style-hover="background:#1FBDBA;">LinkedIn</a>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a href="https://www.linkedin.com/in/benedictdaxellsantoso/" target="_blank" rel="noopener" style="font-family:'Space Grotesk',sans-serif;color:#0B1F3A;background:#17A2A0;padding:8px 15px;border-radius:6px;font-weight:600;font-size:13px;">LinkedIn</a>
+        <button type="button" aria-label="Menu" onClick="{{ toggleMenu }}" style="display:flex;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;padding:0;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:8px;cursor:pointer;align-items:center;">
+          <span style="width:18px;height:2px;background:#FFFFFF;border-radius:2px;display:block;"></span>
+          <span style="width:18px;height:2px;background:#FFFFFF;border-radius:2px;display:block;"></span>
+          <span style="width:18px;height:2px;background:#FFFFFF;border-radius:2px;display:block;"></span>
+        </button>
+      </div>
+    </sc-if>
+  </nav>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:sticky;top:74px;z-index:49;background:#1F3864;border-bottom:1px solid rgba(255,255,255,0.08);padding:8px clamp(20px,5vw,64px) 20px;font-family:'Space Grotesk',sans-serif;">
+      <a href="#challenge" onClick="{{ closeMenu }}" style="display:block;color:rgba(255,255,255,0.82);font-size:16px;font-weight:500;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,0.08);">Challenge</a>
+      <a href="#approach" onClick="{{ closeMenu }}" style="display:block;color:rgba(255,255,255,0.82);font-size:16px;font-weight:500;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,0.08);">Approach</a>
+      <a href="#roadmap" onClick="{{ closeMenu }}" style="display:block;color:rgba(255,255,255,0.82);font-size:16px;font-weight:500;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,0.08);">Roadmap</a>
+      <a href="#deliverables" onClick="{{ closeMenu }}" style="display:block;color:rgba(255,255,255,0.82);font-size:16px;font-weight:500;padding:14px 4px;">Deliverables</a>
+    </div>
+  </sc-if>
+
+  <!-- ===== HERO ===== -->
+  <header id="top" data-screen-label="Hero" style="position:relative;background:#1F3864;color:#FFFFFF;padding:clamp(72px,12vw,140px) clamp(20px,5vw,64px) clamp(80px,13vw,150px);overflow:hidden;">
+    <div style="position:absolute;top:-120px;right:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(23,162,160,0.28),transparent 68%);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-160px;left:-100px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(23,162,160,0.14),transparent 70%);pointer-events:none;"></div>
+    <div style="position:relative;max-width:1040px;margin:0 auto;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
+        <span style="height:1px;width:36px;background:#17A2A0;"></span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#7FD8D6;">Salesforce CRM Transformation</span>
+      </div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;letter-spacing:1px;color:rgba(255,255,255,0.72);margin-bottom:10px;">Benedict Santoso &nbsp;·&nbsp; Salesforce Business Analyst / Solution Designer</div>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(40px,7.5vw,88px);line-height:1.02;letter-spacing:-1.5px;margin:0 0 26px;max-width:16ch;">Sequencing matters more than software.</h1>
+      <p style="font-size:clamp(17px,2vw,20px);color:rgba(255,255,255,0.78);max-width:56ch;margin:0 0 40px;line-height:1.55;">A CRM transformation for Veltron Industries, designed to survive three competing executive constraints and the wreckage of a failed pilot.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;">
+        <a href="https://www.linkedin.com/in/benedictdaxellsantoso/" target="_blank" rel="noopener" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:#0B1F3A;background:#17A2A0;padding:15px 28px;border-radius:8px;display:inline-flex;align-items:center;gap:9px;" style-hover="background:#1FBDBA;">Connect on LinkedIn →</a>
+        <a href="https://www.linkedin.com/pulse/designing-salesforce-crm-transformation-project-taught-santoso-fkolc" target="_blank" rel="noopener" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:#FFFFFF;background:transparent;padding:15px 28px;border-radius:8px;border:1px solid rgba(255,255,255,0.28);display:inline-flex;align-items:center;gap:9px;" style-hover="border-color:#17A2A0;color:#7FD8D6;">Read the full story</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== CHALLENGE ===== -->
+  <section id="challenge" data-screen-label="The Challenge" style="padding:clamp(72px,10vw,120px) clamp(20px,5vw,64px);background:#FFFFFF;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:#17A2A0;margin-bottom:16px;">01 / The Challenge</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,4.6vw,52px);line-height:1.05;letter-spacing:-1px;color:#1F3864;margin:0 0 14px;">Three constraints. One failed pilot.</h2>
+      <p style="font-size:17px;color:#5A6A80;max-width:62ch;margin:0 0 50px;">Every stakeholder pulled in a different direction, and the last attempt had already burned the room's trust.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-bottom:32px;">
+        <div style="border:1px solid #E3E9EF;border-radius:14px;padding:30px;background:#FFFFFF;border-top:3px solid #17A2A0;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#17A2A0;margin-bottom:14px;">VP of Sales</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;color:#1F3864;margin-bottom:10px;line-height:1.2;">Wants speed</div>
+          <p style="font-size:15px;color:#5A6A80;margin:0;">Reps need to close faster. Any solution that slows the pipeline is dead on arrival.</p>
+        </div>
+        <div style="border:1px solid #E3E9EF;border-radius:14px;padding:30px;background:#FFFFFF;border-top:3px solid #17A2A0;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#17A2A0;margin-bottom:14px;">IT Director</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;color:#1F3864;margin-bottom:10px;line-height:1.2;">Requires SAP integration</div>
+          <p style="font-size:15px;color:#5A6A80;margin:0;">Order and inventory data must flow from SAP before go-live, no exceptions.</p>
+        </div>
+        <div style="border:1px solid #E3E9EF;border-radius:14px;padding:30px;background:#FFFFFF;border-top:3px solid #17A2A0;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#17A2A0;margin-bottom:14px;">CFO</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;color:#1F3864;margin-bottom:10px;line-height:1.2;">Holds a fixed budget</div>
+          <p style="font-size:15px;color:#5A6A80;margin:0;">No open cheque. Scope has to fit a hard number without a phase-two rescue.</p>
+        </div>
+      </div>
+
+      <div style="background:#1F3864;border-radius:16px;padding:clamp(28px,4vw,44px);color:#FFFFFF;display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,44px);align-items:start;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(40px,7vw,72px);line-height:1;color:#17A2A0;">✕</div>
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:#7FD8D6;margin-bottom:12px;">The pilot that failed</div>
+          <p style="font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,0.88);margin:0 0 20px;max-width:60ch;">A prior CRM rollout collapsed on contact with the sales floor. Reps rejected it outright, and the reasons were a checklist of what not to repeat.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:500;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);padding:8px 15px;border-radius:20px;">Too many fields</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:500;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);padding:8px 15px;border-radius:20px;">No mobile access</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:500;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);padding:8px 15px;border-radius:20px;">No SAP order history</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:500;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);padding:8px 15px;border-radius:20px;">No personal benefit for reps</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APPROACH ===== -->
+  <section id="approach" data-screen-label="The Approach" style="padding:clamp(72px,10vw,120px) clamp(20px,5vw,64px);background:#F4F7F9;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:#17A2A0;margin-bottom:16px;">02 / The Approach</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,4.6vw,52px);line-height:1.05;letter-spacing:-1px;color:#1F3864;margin:0 0 14px;">From reactive service to proactive platform.</h2>
+      <p style="font-size:17px;color:#5A6A80;max-width:64ch;margin:0 0 50px;">The As-Is process was a chain of manual handoffs and blind spots. The To-Be redesign turns the same journey into one connected, data-backed flow. See <strong style="color:#1F3864;font-weight:600;">Figure 1</strong>.</p>
+
+      <!-- Figure 1: As-Is / To-Be process map -->
+      <div style="background:#FFFFFF;border:1px solid #E3E9EF;border-radius:16px;padding:clamp(22px,4vw,40px);">
+        <div style="display:grid;grid-template-columns:1fr;gap:28px;">
+
+          <!-- As-Is row -->
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+              <span style="width:10px;height:10px;border-radius:50%;background:#9AA7B8;"></span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#7A8798;font-weight:600;">As-Is · Reactive service</span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;">
+              <div style="flex:1;min-width:130px;background:#F1F4F7;border:1px solid #E3E9EF;border-radius:10px;padding:16px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500;color:#5A6A80;">Manual lead entry</div>
+              <div style="display:flex;align-items:center;color:#B4BECC;font-weight:700;">→</div>
+              <div style="flex:1;min-width:130px;background:#F1F4F7;border:1px solid #E3E9EF;border-radius:10px;padding:16px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500;color:#5A6A80;">Siloed spreadsheets</div>
+              <div style="display:flex;align-items:center;color:#B4BECC;font-weight:700;">→</div>
+              <div style="flex:1;min-width:130px;background:#F1F4F7;border:1px solid #E3E9EF;border-radius:10px;padding:16px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500;color:#5A6A80;">No SAP visibility</div>
+              <div style="display:flex;align-items:center;color:#B4BECC;font-weight:700;">→</div>
+              <div style="flex:1;min-width:130px;background:#F1F4F7;border:1px solid #E3E9EF;border-radius:10px;padding:16px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500;color:#5A6A80;">Reactive support</div>
+              <div style="display:flex;align-items:center;color:#B4BECC;font-weight:700;">→</div>
+              <div style="flex:1;min-width:130px;background:#F1F4F7;border:1px solid #E3E9EF;border-radius:10px;padding:16px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500;color:#5A6A80;">Missed renewals</div>
+            </div>
+          </div>
+
+          <!-- transform divider -->
+          <div style="display:flex;align-items:center;justify-content:center;gap:14px;">
+            <span style="height:1px;flex:1;background:#E3E9EF;"></span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#17A2A0;font-weight:600;background:#E9F5F4;padding:7px 16px;border-radius:20px;">Redesign ↓</span>
+            <span style="height:1px;flex:1;background:#E3E9EF;"></span>
+          </div>
+
+          <!-- To-Be row -->
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+              <span style="width:10px;height:10px;border-radius:50%;background:#17A2A0;"></span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#17A2A0;font-weight:600;">To-Be · Proactive platform</span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;">
+              <div style="flex:1;min-width:130px;background:#1F3864;border-radius:10px;padding:16px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:#FFFFFF;">Unified lead capture</div>
+              <div style="display:flex;align-items:center;color:#17A2A0;font-weight:700;">→</div>
+              <div style="flex:1;min-width:130px;background:#1F3864;border-radius:10px;padding:16px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:#FFFFFF;">CPQ-guided quoting</div>
+              <div style="display:flex;align-items:center;color:#17A2A0;font-weight:700;">→</div>
+              <div style="flex:1;min-width:130px;background:#1F3864;border-radius:10px;padding:16px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:#FFFFFF;">Live SAP order data</div>
+              <div style="display:flex;align-items:center;color:#17A2A0;font-weight:700;">→</div>
+              <div style="flex:1;min-width:130px;background:#1F3864;border-radius:10px;padding:16px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:#FFFFFF;">Proactive service</div>
+              <div style="display:flex;align-items:center;color:#17A2A0;font-weight:700;">→</div>
+              <div style="flex:1;min-width:130px;background:#17A2A0;border-radius:10px;padding:16px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:#0B1F3A;">Self-service portal</div>
+            </div>
+          </div>
+
+        </div>
+        <div style="margin-top:22px;font-family:'Space Grotesk',sans-serif;font-size:12.5px;color:#8A97A8;letter-spacing:0.5px;">Figure 1: As-Is / To-Be process map</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROADMAP ===== -->
+  <section id="roadmap" data-screen-label="The Roadmap" style="padding:clamp(72px,10vw,120px) clamp(20px,5vw,64px);background:#FFFFFF;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:#17A2A0;margin-bottom:16px;">03 / The Roadmap</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,4.6vw,52px);line-height:1.05;letter-spacing:-1px;color:#1F3864;margin:0 0 14px;">Phased, not big-bang.</h2>
+      <p style="font-size:17px;color:#5A6A80;max-width:64ch;margin:0 0 50px;">Phase 1 puts a working, adoptable platform in reps' hands first, the highest-value clouds sequenced ahead of everything else. See <strong style="color:#1F3864;font-weight:600;">Figure 2</strong>.</p>
+
+      <!-- Figure 2: phased roadmap -->
+      <div style="position:relative;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;">
+
+          <div style="border:2px solid #17A2A0;border-radius:16px;padding:28px;background:#F0FAF9;position:relative;">
+            <div style="position:absolute;top:-13px;left:24px;background:#17A2A0;color:#0B1F3A;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;padding:5px 14px;border-radius:20px;">PHASE 1 · GO-LIVE</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:#1F3864;margin:12px 0 16px;">Adoptable core, delivered first</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="background:#FFFFFF;border:1px solid #C9E9E7;border-radius:9px;padding:13px 15px;font-family:'Space Grotesk',sans-serif;font-size:14.5px;font-weight:600;color:#1F3864;">Sales Cloud + CPQ</div>
+              <div style="background:#FFFFFF;border:1px solid #C9E9E7;border-radius:9px;padding:13px 15px;font-family:'Space Grotesk',sans-serif;font-size:14.5px;font-weight:600;color:#1F3864;">Service Cloud</div>
+              <div style="background:#FFFFFF;border:1px solid #C9E9E7;border-radius:9px;padding:13px 15px;font-family:'Space Grotesk',sans-serif;font-size:14.5px;font-weight:600;color:#1F3864;">Experience Cloud</div>
+            </div>
+          </div>
+
+          <div style="border:1px solid #E3E9EF;border-radius:16px;padding:28px;background:#FFFFFF;position:relative;">
+            <div style="position:absolute;top:-13px;left:24px;background:#1F3864;color:#FFFFFF;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;padding:5px 14px;border-radius:20px;">PHASE 2</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:#1F3864;margin:12px 0 16px;">Deepen the data backbone</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="background:#F4F7F9;border:1px solid #E3E9EF;border-radius:9px;padding:13px 15px;font-family:'Space Grotesk',sans-serif;font-size:14.5px;font-weight:500;color:#5A6A80;">Extended SAP integration</div>
+              <div style="background:#F4F7F9;border:1px solid #E3E9EF;border-radius:9px;padding:13px 15px;font-family:'Space Grotesk',sans-serif;font-size:14.5px;font-weight:500;color:#5A6A80;">Analytics &amp; dashboards</div>
+              <div style="background:#F4F7F9;border:1px solid #E3E9EF;border-radius:9px;padding:13px 15px;font-family:'Space Grotesk',sans-serif;font-size:14.5px;font-weight:500;color:#5A6A80;">Field service enablement</div>
+            </div>
+          </div>
+
+          <div style="border:1px solid #E3E9EF;border-radius:16px;padding:28px;background:#FFFFFF;position:relative;">
+            <div style="position:absolute;top:-13px;left:24px;background:#1F3864;color:#FFFFFF;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;padding:5px 14px;border-radius:20px;">PHASE 3</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:#1F3864;margin:12px 0 16px;">Scale &amp; intelligence</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="background:#F4F7F9;border:1px solid #E3E9EF;border-radius:9px;padding:13px 15px;font-family:'Space Grotesk',sans-serif;font-size:14.5px;font-weight:500;color:#5A6A80;">Einstein predictions</div>
+              <div style="background:#F4F7F9;border:1px solid #E3E9EF;border-radius:9px;padding:13px 15px;font-family:'Space Grotesk',sans-serif;font-size:14.5px;font-weight:500;color:#5A6A80;">Advanced automation</div>
+              <div style="background:#F4F7F9;border:1px solid #E3E9EF;border-radius:9px;padding:13px 15px;font-family:'Space Grotesk',sans-serif;font-size:14.5px;font-weight:500;color:#5A6A80;">Continuous optimization</div>
+            </div>
+          </div>
+
+        </div>
+        <div style="margin-top:26px;font-family:'Space Grotesk',sans-serif;font-size:12.5px;color:#8A97A8;letter-spacing:0.5px;">Figure 2: Phased implementation roadmap</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ARCHITECTURE ===== -->
+  <section id="architecture" data-screen-label="Solution Architecture" style="padding:clamp(72px,10vw,120px) clamp(20px,5vw,64px);background:#1F3864;color:#FFFFFF;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:#7FD8D6;margin-bottom:16px;">04 / Solution Architecture</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,4.6vw,52px);line-height:1.05;letter-spacing:-1px;color:#FFFFFF;margin:0 0 14px;">Three clouds, one platform.</h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.72);max-width:60ch;margin:0 0 56px;">Each cloud earns its place with a single job, all sharing one Salesforce core and one source of truth.</p>
+
+      <div style="display:grid;grid-template-columns:1fr;gap:28px;align-items:center;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;">
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(23,162,160,0.4);border-radius:14px;padding:26px;">
+            <div style="width:38px;height:38px;border-radius:9px;background:#17A2A0;margin-bottom:16px;"></div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:#FFFFFF;margin-bottom:8px;">Sales Cloud + CPQ</div>
+            <p style="font-size:14.5px;color:rgba(255,255,255,0.7);margin:0;">Guided, fast quoting that reps actually want to use.</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(23,162,160,0.4);border-radius:14px;padding:26px;">
+            <div style="width:38px;height:38px;border-radius:9px;background:#17A2A0;margin-bottom:16px;"></div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:#FFFFFF;margin-bottom:8px;">Service Cloud</div>
+            <p style="font-size:14.5px;color:rgba(255,255,255,0.7);margin:0;">Proactive support backed by live order context.</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(23,162,160,0.4);border-radius:14px;padding:26px;">
+            <div style="width:38px;height:38px;border-radius:9px;background:#17A2A0;margin-bottom:16px;"></div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:#FFFFFF;margin-bottom:8px;">Experience Cloud</div>
+            <p style="font-size:14.5px;color:rgba(255,255,255,0.7);margin:0;">A self-service portal that deflects and delights.</p>
+          </div>
+        </div>
+
+        <!-- connectors -->
+        <div style="display:flex;justify-content:center;gap:60px;color:#17A2A0;font-size:20px;font-weight:700;">
+          <span>│</span><span>│</span><span>│</span>
+        </div>
+
+        <!-- core -->
+        <div style="text-align:center;background:linear-gradient(135deg,#17A2A0,#12857F);border-radius:16px;padding:clamp(26px,4vw,40px);">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(11,31,58,0.7);margin-bottom:8px;">One source of truth</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,4vw,34px);font-weight:700;color:#0B1F3A;letter-spacing:-0.5px;">Salesforce Platform Core</div>
+          <div style="margin-top:14px;display:inline-flex;align-items:center;gap:10px;background:rgba(11,31,58,0.12);padding:9px 18px;border-radius:22px;font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:600;color:#0B1F3A;">
+            <span style="width:8px;height:8px;border-radius:50%;background:#0B1F3A;"></span>
+            SAP Integration Layer
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DELIVERABLES ===== -->
+  <section id="deliverables" data-screen-label="Deliverables" style="padding:clamp(72px,10vw,120px) clamp(20px,5vw,64px);background:#FFFFFF;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:#17A2A0;margin-bottom:16px;">05 / Deliverables</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,4.6vw,52px);line-height:1.05;letter-spacing:-1px;color:#1F3864;margin:0 0 50px;">The artifacts.</h2>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;">
+        <div style="border:1px solid #E3E9EF;border-radius:16px;overflow:hidden;background:#FFFFFF;">
+          <div style="height:180px;background:repeating-linear-gradient(135deg,#1F3864,#1F3864 12px,#25406F 12px,#25406F 24px);display:flex;align-items:center;justify-content:center;position:relative;">
+            <div style="background:rgba(255,255,255,0.94);border-radius:8px;padding:18px 26px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:#1F3864;">Main Deck</div>
+          </div>
+          <div style="padding:26px;">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:8px;">
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:#1F3864;">Main Deck</div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;color:#17A2A0;">21 slides</div>
+            </div>
+            <p style="font-size:14.5px;color:#5A6A80;margin:0 0 20px;">The full solution story: constraints, process redesign, roadmap, and architecture.</p>
+            <a href="uploads/Veltron_FinalProject_BenedictDaxell_Santoso.pdf" target="_blank" rel="noopener" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px;color:#0B1F3A;background:#17A2A0;padding:12px 22px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;" style-hover="background:#1FBDBA;">View / Download PDF →</a>
+          </div>
+        </div>
+
+        <div style="border:1px solid #E3E9EF;border-radius:16px;overflow:hidden;background:#FFFFFF;">
+          <div style="height:180px;background:repeating-linear-gradient(135deg,#17A2A0,#17A2A0 12px,#1FBDBA 12px,#1FBDBA 24px);display:flex;align-items:center;justify-content:center;position:relative;">
+            <div style="background:rgba(255,255,255,0.94);border-radius:8px;padding:18px 26px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:#1F3864;">Executive Deck</div>
+          </div>
+          <div style="padding:26px;">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:8px;">
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:#1F3864;">Executive Deck</div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;color:#17A2A0;">12 slides</div>
+            </div>
+            <p style="font-size:14.5px;color:#5A6A80;margin:0 0 20px;">The boardroom cut: decision, trade-offs, and business case in twelve slides.</p>
+            <a href="uploads/Veltron_FinalProject_ExecutiveDeck_BenedictDaxell_Santoso.pdf" target="_blank" rel="noopener" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px;color:#0B1F3A;background:#17A2A0;padding:12px 22px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;" style-hover="background:#1FBDBA;">View / Download PDF →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT I LEARNED ===== -->
+  <section id="learned" data-screen-label="What I Learned" style="padding:clamp(72px,10vw,120px) clamp(20px,5vw,64px);background:#F4F7F9;">
+    <div style="max-width:860px;margin:0 auto;text-align:center;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:#17A2A0;margin-bottom:18px;">06 / What I Learned</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(32px,5vw,58px);line-height:1.04;letter-spacing:-1px;color:#1F3864;margin:0 0 28px;">Sequencing over software.</h2>
+      <p style="font-size:clamp(18px,2.3vw,23px);color:#46566B;line-height:1.55;margin:0 0 36px;">Whether a CRM transformation survives contact with real constraints comes down to how you sequence process and change management, far more than which features make the final cut. Get the order right, and adoption follows. Get it wrong, and the best feature list still fails.</p>
+      <a href="https://www.linkedin.com/pulse/designing-salesforce-crm-transformation-project-taught-santoso-fkolc" target="_blank" rel="noopener" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:#0B1F3A;background:#17A2A0;padding:15px 30px;border-radius:8px;display:inline-flex;align-items:center;gap:9px;" style-hover="background:#1FBDBA;">Read the full reflection →</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="contact" data-screen-label="Contact" style="background:#16294A;color:#FFFFFF;padding:clamp(64px,9vw,110px) clamp(20px,5vw,64px) 48px;">
+    <div style="max-width:960px;margin:0 auto;text-align:center;">
+      <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:26px;">
+        <span style="width:9px;height:9px;border-radius:2px;background:#17A2A0;display:inline-block;"></span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;letter-spacing:0.5px;">Benedict Santoso</span>
+      </div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,3.6vw,40px);line-height:1.2;letter-spacing:-0.5px;color:#FFFFFF;margin:0 auto 34px;max-width:22ch;">Building Salesforce solutions that survive contact with real constraints.</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+        <a href="https://www.linkedin.com/in/benedictdaxellsantoso/" target="_blank" rel="noopener" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:#0B1F3A;background:#17A2A0;padding:14px 28px;border-radius:8px;" style-hover="background:#1FBDBA;">Connect on LinkedIn →</a>
+        <a href="mailto:benedict.d.santoso@gmail.com" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:#FFFFFF;background:transparent;padding:14px 28px;border-radius:8px;border:1px solid rgba(255,255,255,0.28);" style-hover="border-color:#17A2A0;color:#7FD8D6;">Email me</a>
+      </div>
+      <div style="margin-top:56px;padding-top:26px;border-top:1px solid rgba(255,255,255,0.1);font-family:'Space Grotesk',sans-serif;font-size:13px;color:rgba(255,255,255,0.4);">© 2026 Benedict Santoso · Salesforce Business Analyst / Solution Designer</div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: false, menuOpen: false };
+
+  componentDidMount() {
+    this._check = () => {
+      const isMobile = window.innerWidth < 768;
+      this.setState(s => ({ isMobile, menuOpen: isMobile ? s.menuOpen : false }));
+    };
+    this._check();
+    window.addEventListener('resize', this._check);
+  }
+  componentWillUnmount() {
+    if (this._check) window.removeEventListener('resize', this._check);
+  }
+
+  renderVals() {
+    return {
+      isMobile: this.state.isMobile,
+      isDesktop: !this.state.isMobile,
+      menuOpen: this.state.isMobile && this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>
